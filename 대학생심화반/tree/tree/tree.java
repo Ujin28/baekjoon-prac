@@ -8,8 +8,8 @@ public class tree {
 
         int N = scanner.nextInt();
         int M = scanner.nextInt();
-        int[] height = new int[N];
-        int result=0;
+        long[] height = new long[N];
+        long result=0;
 
         for (int i = 0; i<N;i++) {
             height[i] = scanner.nextInt();
@@ -18,14 +18,14 @@ public class tree {
 
         scanner.close();
 
-        int min = 0;
-        int max = height[N - 1];
+        long min = 0;
+        long max = height[N - 1];
 
         while (min < max) {
-            int sum = 0;
-            int mid = (min + max) / 2;
+            long sum = 0;
+            long mid = (min + max) / 2;
 
-            for (int tree : height) {
+            for (long tree : height) {
                 if (tree >mid) {
                     sum += tree - mid;
                 }
