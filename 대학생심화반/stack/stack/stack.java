@@ -7,6 +7,7 @@ public class stack {
     public static void main(String[] args ) {
 
         Scanner sc = new Scanner(System.in);
+        StringBuilder sb = new StringBuilder();
 
         int n = sc.nextInt();
         stack = new int[n];
@@ -17,30 +18,44 @@ public class stack {
             switch (str) {
 
                 case "push":
-                    push(sc.nextInt());
+                    stack[size++] = sc.nextInt();
                     break;
 
                 case "pop":
-                    pop();
+                    if (size > 0) {
+                        sb.append(stack[size - 1]).append('\n');
+                        size--;
+                    } else {
+                        sb.append(-1).append('\n');
+                    }
                     break;
 
                 case "size":
-                    System.out.println(size);
+                    sb.append(size).append('\n');
                     break;
 
                 case "empty":
-                    empty();
+                    if (size > 0) {
+                        sb.append(0).append('\n');
+                    } else {
+                        sb.append(1).append('\n');
+                    }
                     break;
 
                 case "top":
-                    top();
+                    if (size > 0) {
+                        sb.append(stack[size-1]).append('\n');
+                    } else {
+                        sb.append(-1).append('\n');
+                    }
                     break;
             }
         }
+        System.out.println(sb);
     }
 
 
-    public static void push(int k) {
+   /** public static void push(int k) {
         stack[size++] = k;
     }
         public static void pop() {
@@ -66,5 +81,5 @@ public class stack {
             } else {
                 System.out.println("-1");
             }
-        }
+        }**/
 }
