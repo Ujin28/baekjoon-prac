@@ -1,31 +1,70 @@
 import java.util.Scanner;
 
 public class stack {
+
+    private static int[] stack;
+    private static int size;
     public static void main(String[] args ) {
 
         Scanner sc = new Scanner(System.in);
+
         int n = sc.nextInt();
-        long [] stack = new long[n];
-        int si = 0;
+        stack = new int[n];
+        size = 0;
 
+        for (int i = 0; i < n; i++) {
+            String str = sc.next();
+            switch (str) {
 
-        void push(int i) {
-            stack[si++] = i;
-        }
+                case "push":
+                    push(sc.nextInt());
+                    break;
 
-        void pop() {
-            if (si == 0) {
-                System.out.println(-1);
+                case "pop":
+                    pop();
+                    break;
+
+                case "size":
+                    System.out.println(size);
+                    break;
+
+                case "empty":
+                    empty();
+                    break;
+
+                case "top":
+                    top();
+                    break;
             }
-            else {
-                long m = stack[--si];
-                stack[si] = 0;
-                System.out.println(m);
-            }
-        }
-
-        void size() {
-            System.out.println(si);
         }
     }
+
+
+    public static void push(int k) {
+        stack[size++] = k;
+    }
+        public static void pop() {
+            if (size > 0) {
+                System.out.println(stack[size - 1]);
+                size--;
+            } else {
+                System.out.println("-1");
+            }
+        }
+
+        public static void empty() {
+            if (size > 0) {
+                System.out.println("0");
+            } else {
+                System.out.println("1");
+            }
+        }
+
+        public static void top() {
+            if (size > 0) {
+                System.out.println(stack[size - 1]);
+            } else {
+                System.out.println("-1");
+            }
+        }
 }
